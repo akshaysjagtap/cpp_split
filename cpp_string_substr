@@ -1,0 +1,15 @@
+// split string depending upon delimiter and return vector of string split at delimiter excluding delimiter
+	std::vector<std::string> split(std::string str, std::string delimiter)
+	{
+		  std::vector<std::string> splits;
+		  int start = 0;
+		  int end = str.find(delimiter);
+		  while (end != -1) 
+		  {
+			splits.push_back(str.substr(start, end - start));
+			start = end + delimiter.size();
+			end = str.find(delimiter, start);
+		  }
+		  splits.push_back(str.substr(start, end - start));
+		  return splits;
+	}	
